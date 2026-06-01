@@ -10,7 +10,6 @@ html {
     color: #333;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -18,11 +17,11 @@ body {
     overflow: hidden; 
 }
 
-h3{
-    color:#4881BD;
+h3 {
+    color: #4881BD;
 }
 
-p{
+p {
     margin-bottom: 1rem;
 }
 
@@ -40,10 +39,10 @@ p{
     color: #1a1a1a;
 }
 
-.mainpage{
+.mainpage {
     text-decoration: none;
-    color:inherit;
-    cursor:pointer;
+    color: inherit;
+    cursor: pointer;
 }
 
 .tab-navigation {
@@ -68,14 +67,14 @@ p{
     border-bottom-color: #0076ff;
 }
 
-
 .content-container {
     flex: 1;
     display: flex;
     overflow-x: auto; 
+    overflow-y: hidden;
     scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
 }
-
 
 .content-container::-webkit-scrollbar {
     display: none;
@@ -87,22 +86,21 @@ p{
     scroll-snap-align: start; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    padding: 3rem 2rem 2rem 2rem;
+    padding: 2rem;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    background-color: #ffffff;
 }
-
-#section1 { background-color: #ffffff; }
-#section2 { background-color: #ffffff; }
-#section3 { background-color: #ffffff; }
-#section4 { background-color: #ffffff; }
-#section5 { background-color: #ffffff; }
-#section6 { background-color: #ffffff; }
-#section7 { background-color: #ffffff; }
 
 .section-content {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+    padding-right: 0.5rem;
 }
 
 .section-content h2 {
@@ -110,15 +108,17 @@ p{
     margin-bottom: 1rem;
 }
 
-
 .pagination-bar {
     max-width: 800px;
     margin: 0 auto;
     width: 100%;
     display: flex;
     justify-content: space-between; 
-    padding-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid #eee;
+    background-color: #ffffff;
+    z-index: 5;
+    flex-shrink: 0;
 }
 
 .btn {
@@ -139,13 +139,11 @@ p{
     background-color: #0056b3;
 }
 
-/* Style for dead-ends (e.g., Prev on Page 1) */
 .btn.disabled {
     background-color: #e0e0e0;
     color: #a1a1a1;
     cursor: not-allowed;
 }
-
 
 .site-footer {
     background-color: #1a1a1a;
@@ -153,12 +151,57 @@ p{
     text-align: center;
     padding: 1rem;
     font-size: 0.85rem;
+    z-index: 10;
+    flex-shrink: 0;
 }
 
-.fluidimg{
-    max-width:100%;
+.fluidimg {
+    max-width: 100%;
+    max-height: 400px;
     height: auto;
     display: block;
+    margin: 1rem auto;
 }
 
 
+.spoiler-container {
+    margin: 1rem 0;
+}
+
+
+.spoiler-button {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #4881BD;
+    color: white;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+    list-style: none; 
+}
+
+.spoiler-button::-webkit-details-marker {
+    display: none; 
+}
+
+.spoiler-button:hover {
+    background-color: #0056b3;
+}
+
+.spoiler-button::before {
+    content: attr(data-closed);
+}
+
+.spoiler-container[open] .spoiler-button::before {
+    content: attr(data-open);
+}
+
+.spoiler-content {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background-color: #f4f6f8;
+    border-left: 4px solid #4881BD;
+    border-radius: 0 6px 6px 0;
+}
