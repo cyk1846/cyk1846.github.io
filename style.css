@@ -18,6 +18,13 @@ body {
     overflow: hidden; 
 }
 
+h3{
+    color:#4881BD;
+}
+
+p{
+    margin-bottom: 1rem;
+}
 
 .site-header {
     background-color: #ffffff;
@@ -87,6 +94,10 @@ body {
 #section1 { background-color: #ffffff; }
 #section2 { background-color: #ffffff; }
 #section3 { background-color: #ffffff; }
+#section4 { background-color: #ffffff; }
+#section5 { background-color: #ffffff; }
+#section6 { background-color: #ffffff; }
+#section7 { background-color: #ffffff; }
 
 .section-content {
     max-width: 800px;
@@ -143,4 +154,11 @@ body {
     padding: 1rem;
     font-size: 0.85rem;
 }
+
+.fluidimg{
+    max-width:100%;
+    height: auto;
+    display: block;
+}
+
 
