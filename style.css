@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Creates smooth sliding transitions when clicking links */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; 
+}
+
+
+.site-header {
+    background-color: #ffffff;
+    padding: 1rem 2rem 0 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 10;
+}
+
+.site-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #1a1a1a;
+}
+
+.tab-navigation {
+    display: flex;
+    gap: 1rem;
+}
+
+.tab-link {
+    text-decoration: none;
+    color: #666;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.tab-link:hover {
+    color: #0076ff;
+}
+
+.tab-link:active {
+    border-bottom-color: #0076ff;
+}
+
+
+.content-container {
+    flex: 1;
+    display: flex;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+}
+
+
+.content-container::-webkit-scrollbar {
+    display: none;
+}
+
+.page-section {
+    flex: 0 0 100%; 
+    width: 100%;
+    scroll-snap-align: start; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 3rem 2rem 2rem 2rem;
+}
+
+#section1 { background-color: #ffffff; }
+#section2 { background-color: #fafafa; }
+#section3 { background-color: #ffffff; }
+
+.section-content {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+.pagination-bar {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.2s ease;
+}
+
+.prev-btn, .next-btn {
+    background-color: #0076ff;
+    color: white;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Style for dead-ends (e.g., Prev on Page 1) */
+.btn.disabled {
+    background-color: #e0e0e0;
+    color: #a1a1a1;
+    cursor: not-allowed;
+}
+
+
+.site-footer {
+    background-color: #1a1a1a;
+    color: #aeaeae;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+}
